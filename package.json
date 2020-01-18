@@ -1,6 +1,6 @@
 {
   "name": "vue-ugly",
-  "version": "0.10",
+  "version": "0.0.1",
   "description": "tutorial for vue 0.10",
   "main": "index.js",
   "scripts": {
