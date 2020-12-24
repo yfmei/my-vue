@@ -2,14 +2,46 @@
   "name": "vue-ugly",
   "version": "0.0.1",
   "description": "tutorial for vue 0.10",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint": "eslint -c .eslintrc.js --fix src/**/*.js test/**/*.js",
+    "test": "karma start karma.conf.js",
+    "unit": "karma start karma.conf.js",
+    "e2e": "nightwatch --config nightwatch.conf.js",
+
+    "build": "webpack --config build/webpack.config.js",
+    "start": "webpack-dev-server --open --progress --config build/webpack.config.js --mode=development",
+    "server": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "webpack": "^4.41.5"
-  }
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.10",
+    "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "chromedriver": "^87.0.4",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.16.0",
+    "karma": "^4.4.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-webpack": "^4.0.2",
+    "mocha": "^7.1.1",
+    "nightwatch": "^1.5.1",
+    "webpack": "^4.42.1"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint -c .eslintrc.js --fix src/**/*.js test/**/*.js",
+      "git add"
+    ]
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {}
 }
